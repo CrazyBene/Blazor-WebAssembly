@@ -1,0 +1,30 @@
+@page "/conditional"
+
+<h1>If and conditional rendering examples</h1>
+
+<p>The value is: @value</p>
+
+@if(value % 2  == 0) 
+{
+    <p>The value is even.</p>
+}
+else if(value >= 1337)
+{
+    <p>The value is large.</p>
+}
+else
+{
+    <p>The value is odd and small.</p>
+}
+
+<button class="btn btn-primary" @onclick="newRandomValue">New Value</button>
+
+@code {
+    private int value = 0;
+
+    private void newRandomValue()
+    {
+        var r = new Random();
+        value = r.Next(0, 2000);
+    } 
+}
