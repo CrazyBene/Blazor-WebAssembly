@@ -1,0 +1,10 @@
+@page "/route-parameter-2/{number:Int}"
+
+<h1>Route parameter example 2</h1>
+
+<p>Parameter: @Number</p>
+
+@code {
+    [Parameter]
+    public int Number { get; set; }
+}
