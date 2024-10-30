@@ -1,0 +1,36 @@
+@page "/hashed-routing"
+@inject NavigationManager NavigationManager
+
+<h1>Hashed routing to named elements</h1>
+
+<ul>
+    <li>
+        <a href="/hashed-routing#targetElement">
+            Anchor in this component
+        </a>
+    </li>
+    <li>
+        <NavLink href="/hashed-routing#targetElement">
+            Use a `NavLink` component in this component
+        </NavLink>
+    </li>
+    <li>
+        <button class="btn btn-primary" @onclick="NavigateToElement">
+            Navigate with NavigationManager
+        </button>
+    </li>
+</ul>
+
+<div class="border border-info rounded bg-info" style="height:2000px"></div>
+
+<h2 id="targetElement">Target H2 heading</h2>
+<p>Content!</p>
+
+<div class="border border-info rounded bg-info" style="height:2000px"></div>
+
+@code {
+    private void NavigateToElement()
+    {
+        NavigationManager.NavigateTo("/hashed-routing#targetElement", new NavigationOptions {});
+    }
+}

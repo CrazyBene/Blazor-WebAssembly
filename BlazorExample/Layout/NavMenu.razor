@@ -1,0 +1,74 @@
+﻿<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">BlazorExample</a>
+        <button class="navbar-toggler @NavButtonCssClass" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse @NavBarCssClass" id="navbarCollapse" @onclick="ToggleNavMenu">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
+                        <span class="oi oi-home" aria-hidden="true"></span> Home
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/conditional">
+                        <span class="oi oi-plus" aria-hidden="true"></span> Conditional
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/loops">
+                        <span class="oi oi-plus" aria-hidden="true"></span> Loops
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/image">
+                        <span class="oi oi-plus" aria-hidden="true"></span> Image
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/route-parameter-1/thisIsAParameter">
+                        <span class="oi oi-plus" aria-hidden="true"></span> Route Parameter
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/component-parameter">
+                        <span class="oi oi-plus" aria-hidden="true"></span> Component Parameter
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/catch-all/this/is/a/parameter">
+                        <span class="oi oi-plus" aria-hidden="true"></span> Catch All
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/routing-1">
+                        <span class="oi oi-plus" aria-hidden="true"></span> Routing
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/hashed-routing">
+                        <span class="oi oi-plus" aria-hidden="true"></span> Hashed Routing
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/search?filter=scifi%20stars&page=3&star=LeVar%20Burton&star=Gary%20Oldman">
+                        <span class="oi oi-plus" aria-hidden="true"></span> Query Parameter
+                    </NavLink>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private bool collapseNavMenu = true;
+    private string? NavBarCssClass => collapseNavMenu ? null : "show";
+    private string? NavButtonCssClass => collapseNavMenu ? "collapsed" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

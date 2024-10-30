@@ -1,0 +1,29 @@
+@page "/routing-1"
+@inject NavigationManager NavigationManager
+
+<h1>Routing example page 1</h1>
+
+<ul>
+    <li>
+        <a href="/routing-2">
+            Anchor in this component
+        </a>
+    </li>
+    <li>
+        <NavLink href="/routing-2">
+            Use a `NavLink` component in this component
+        </NavLink>
+    </li>
+    <li>
+        <button class="btn btn-primary" @onclick="NavigateToElement">
+            Navigate with NavigationManager
+        </button>
+    </li>
+</ul>
+
+@code {
+    private void NavigateToElement()
+    {
+        NavigationManager.NavigateTo("/routing-2");
+    }
+}
