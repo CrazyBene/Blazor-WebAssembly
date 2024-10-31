@@ -1,8 +1,12 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using BlazorExample;
+using BlazorExample.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
+
+builder.Services.AddSingleton(new LoggingService(LoggingService.LogLevel.INFO));
+
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
