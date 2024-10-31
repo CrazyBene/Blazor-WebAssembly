@@ -1,0 +1,25 @@
+@page "/logging"
+@inject LoggingService LoggingS
+
+<h1>Logging Service example</h1>
+
+<div class="row g-3 align-items-center">
+  <div class="col-auto">
+    <label for="inputField" class="col-form-label">Message</label>
+  </div>
+  <div class="col-auto">
+    <input type="text" id="inputField" class="form-control" @bind=@Message>
+  </div>
+  <div class="col-auto">
+    <button class="btn btn-primary" @onclick="LogMessage">Log Message</button>
+  </div>
+</div>
+
+@code
+{
+    private string Message = "";
+
+    private void LogMessage() {
+       LoggingS.LogMessage(Message, LoggingService.LogLevel.INFO);
+    }
+}
