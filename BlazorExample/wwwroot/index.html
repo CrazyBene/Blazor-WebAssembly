@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="css/app.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="BlazorExample.styles.css" rel="stylesheet" />
+
+    <script>
+      window.convertArray = (win1251Array) => {
+        var win1251decoder = new TextDecoder("windows-1251")
+        var bytes = new Uint8Array(win1251Array)
+        var decodedArray = win1251decoder.decode(bytes)
+        return decodedArray
+      }
+    </script>
   </head>
 
   <body>

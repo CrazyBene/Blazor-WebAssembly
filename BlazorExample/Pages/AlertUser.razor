@@ -1,0 +1,32 @@
+@page "/alert-user"
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+
+<h1>Alert User</h1>
+
+<p>
+    <button class="btn btn-primary" id="btn">Click Me!</button>
+</p>
+
+@code {
+    private IJSObjectReference? module;
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import",
+                "./Pages/AlertUser.razor.js");
+
+            await module.InvokeVoidAsync("addHandlers");
+        }
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if (module is not null)
+        {
+            await module.DisposeAsync();
+        }
+    }
+}
